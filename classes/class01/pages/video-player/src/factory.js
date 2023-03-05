@@ -23,9 +23,9 @@ async function getWorker() {
   })
   const workerMock = {
     async postMessage(video) {
-      const blinked = await service.handBlinked(video)
-      if (!blinked) return;
-      workerMock.onmessage({ data: { blinked }})
+      const { blinked, leftBlinked, rightBlinked } = await service.handBlinked(video)
+      if (!blinked && !leftBlinked && !rightBlinked) return;
+      workerMock.onmessage({ data: { blinked, leftBlinked, rightBlinked }})
     },
     // vai ser sobreescrito pela controller
     onmessage(msg) {}

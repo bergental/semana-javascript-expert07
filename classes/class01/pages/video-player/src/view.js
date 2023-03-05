@@ -24,6 +24,13 @@ export default class View {
     this.#videoElement.pause()
   }
 
+  playVideo() {
+    this.#videoElement.play()
+  }
+
+  pauseVideo() {
+    this.#videoElement.pause()
+  }
 
   enableButton() {
     this.#btnInit.disabled = false

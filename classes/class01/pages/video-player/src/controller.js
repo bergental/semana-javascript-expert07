@@ -27,9 +27,14 @@ export default class Controller {
         return;
       }
 
-      const blinked = data.blinked
+      const { blinked, leftBlinked, rigthBlinked } = data
       this.#blinkCounter += blinked
-      this.#view.togglePlayVideo()
+      if (blinked)
+        this.#view.togglePlayVideo()
+      else if (leftBlinked)
+        this.#view.pauseVideo()
+      else if (rigthBlinked)
+        this.#view.playVideo()
       console.log('blinked', blinked)
     }
 
