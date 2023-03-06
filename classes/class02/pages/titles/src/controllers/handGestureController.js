@@ -22,9 +22,12 @@ export default class HandGestureController {
     const pixelsPerScroll = 100
     if (this.#lastDirection.direction === direction) {
       this.#lastDirection.y = (
-        direction === 'scroll-down' ?
-          this.#lastDirection.y + pixelsPerScroll :
-          this.#lastDirection.y - pixelsPerScroll
+        direction === 'scroll-home' ? 0
+          : (
+            'scroll-down' ?
+            this.#lastDirection.y + pixelsPerScroll :
+            this.#lastDirection.y - pixelsPerScroll
+          ) 
       )
     }
     else {
