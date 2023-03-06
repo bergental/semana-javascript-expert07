@@ -1,10 +1,10 @@
 export default class CardService {
   #database = []
   #dbUrl = ''
-  #cardsListWorker
-  constructor({ dbUrl, cardsListWorker }) {
+  #cardListWorker
+  constructor({ dbUrl, cardListWorker }) {
     this.#dbUrl = dbUrl
-    this.#cardsListWorker = cardsListWorker
+    this.#cardListWorker = cardListWorker
   }
   async loadCards() {
     const response = await fetch(this.#dbUrl)
@@ -16,7 +16,7 @@ export default class CardService {
       .filter(({ title }) => !!keyword ? title.toLowerCase().includes(keyword.toLowerCase()) : true)
 
     if (keyword) {
-      this.#cardsListWorker.postMessage({ maxItems: 1e5 }) 
+      this.#cardListWorker.postMessage({ maxItems: 1e5 }) 
     }
 
     const cards = titles.map(item => {

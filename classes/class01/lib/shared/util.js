@@ -1,4 +1,4 @@
-function supportWorkerTypes() {
+function supportsWorkerType() {
   let supports = false
   let tester = {
     get type() { supports = true }
@@ -23,6 +23,6 @@ function prepareRunChecker({ timerDelay }) {
 }
 
 export {
-  supportWorkerTypes,
+  supportsWorkerType,
   prepareRunChecker
 }

@@ -14,7 +14,7 @@ export default class Camera {
       audio: false,
       video: {
         width: globalThis.screen.availWidth,
-        heigth: globalThis.screen.availHeight,
+        height: globalThis.screen.availHeight,
         frameRate: {
           ideal: 60
         }
@@ -26,9 +26,9 @@ export default class Camera {
     camera.video.srcObject = stream
 
     // debug reasons
-    camera.video.height = 240
-    camera.video.width = 320
-    document.body.append(camera.video)
+    // camera.video.height = 240
+    // camera.video.width = 320
+    // document.body.append(camera.video)
 
     await new Promise((resolve) => {
       camera.video.onloadedmetadata = () => {

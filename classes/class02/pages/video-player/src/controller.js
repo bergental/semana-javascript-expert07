@@ -8,12 +8,12 @@ export default class Controller {
     this.#worker = this.#configureWorker(worker)
     this.#camera = camera
 
-    this.#view.configureOnBtnClick(this.onBtnnStart.bind(this))
+    this.#view.configureOnBtnClick(this.onBtnStart.bind(this))
   }
 
   static async initialize(deps) {
     const controller = new Controller(deps)
-    controller.log('not yet detecting eye blink! click in thhe button to start')
+    controller.log('not yet detecting eye blink! click in the button to start')
     return controller.init()
   }
 
@@ -60,10 +60,10 @@ export default class Controller {
 
   log(text) {
     const times = `      - blinked times: ${this.#blinkCounter}`
-    this.#view.log(`logger: ${text}`.concat(this.#blinkCounter ? times : ''))
+    this.#view.log(`status: ${text}`.concat(this.#blinkCounter ? times : ""))
   }
 
-  onBtnnStart() {
+  onBtnStart() {
     this.log('initializing detection...')
     this.#blinkCounter = 0
     this.loop()

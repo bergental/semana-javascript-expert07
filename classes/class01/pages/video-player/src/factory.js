@@ -1,10 +1,10 @@
 import Camera from "../../../lib/shared/camera.js"
-import { supportWorkerTypes } from "../../../lib/shared/utils.js"
+import { supportsWorkerType } from "../../../lib/shared/util.js"
 import Controller from "./controller.js"
 import Service from "./service.js"
 import View from "./view.js"
 async function getWorker() {
-  if (supportWorkerTypes()) {
+  if (supportsWorkerType()) {
     console.log('initializing esm workers')
     const worker = new Worker('./src/worker.js', { type: 'module'})
     return worker
@@ -44,7 +44,7 @@ const worker = await getWorker()
 const camera = await Camera.init()
 const [rootPath] = window.location.href.split('/pages/')
 const factory = {
-  async initalize() {
+  async initialize() {
     return Controller.initialize({
       view: new View(),
       worker,

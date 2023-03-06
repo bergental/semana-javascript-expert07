@@ -8,7 +8,7 @@ export default class Controller {
     this.#worker = this.#configureWorker(worker)
     this.#camera = camera
 
-    this.#view.configureOnBtnClick(this.onBtnnStart.bind(this))
+    this.#view.configureOnBtnClick(this.onBtnStart.bind(this))
   }
 
   static async initialize(deps) {
@@ -63,7 +63,7 @@ export default class Controller {
     this.#view.log(`logger: ${text}`.concat(this.#blinkCounter ? times : ''))
   }
 
-  onBtnnStart() {
+  onBtnStart() {
     this.log('initializing detection...')
     this.#blinkCounter = 0
     this.loop()

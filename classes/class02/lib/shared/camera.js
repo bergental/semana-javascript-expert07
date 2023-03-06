@@ -14,7 +14,7 @@ export default class Camera {
       audio: false,
       video: {
         width: globalThis.screen.availWidth,
-        heigth: globalThis.screen.availHeight,
+        height: globalThis.screen.availHeight,
         frameRate: {
           ideal: 60
         }
